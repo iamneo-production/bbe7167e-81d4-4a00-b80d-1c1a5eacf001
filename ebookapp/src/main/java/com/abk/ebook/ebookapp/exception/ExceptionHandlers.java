@@ -1,4 +1,4 @@
-package com.example.ebook.exception;
+package com.abk.ebook.ebookapp.exception;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,3 +18,4 @@ public class ExceptionHandlers {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 	}
 }
+

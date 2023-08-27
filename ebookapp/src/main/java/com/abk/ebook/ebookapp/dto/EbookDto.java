@@ -1,41 +1,27 @@
-package com.example.ebook.model;
+package com.abk.ebook.ebookapp.dto;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+public class EbookDto {
 
-@Entity
-@Table(name = "ebook")
-public class EbookModel {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ebookSequence")
-	@SequenceGenerator(name ="ebookSequence",sequenceName = "ebookSequence",initialValue = 1,allocationSize = 1)
 	private Long ebookId;
-	@Column(name = "book_content", columnDefinition = "LONGBLOB")
-	private byte[] ebookContent;
+	private String ebookContent;
 	private String title;
 	private Long userId;
 	private  String currentVersion;
 	private Timestamp createdOn;
 	private Timestamp updatedOn;
-	 
 	public Long getEbookId() {
 		return ebookId;
 	}
 	public void setEbookId(Long ebookId) {
 		this.ebookId = ebookId;
 	}
-	public byte[] getEbookContent() {
+	
+	public String getEbookContent() {
 		return ebookContent;
 	}
-	public void setEbookContent(byte[] ebookContent) {
+	public void setEbookContent(String ebookContent) {
 		this.ebookContent = ebookContent;
 	}
 	public String getTitle() {
@@ -68,7 +54,19 @@ public class EbookModel {
 	public void setUpdatedOn(Timestamp updatedOn) {
 		this.updatedOn = updatedOn;
 	}
+	public EbookDto(Long ebookId, String ebookContent, String title, Long userId, String currentVersion,
+			Timestamp createdOn, Timestamp updatedOn) {
+		super();
+		this.ebookId = ebookId;
+		this.ebookContent = ebookContent;
+		this.title = title;
+		this.userId = userId;
+		this.currentVersion = currentVersion;
+		this.createdOn = createdOn;
+		this.updatedOn = updatedOn;
+	}
 	
-	 
-	 
+	
+	
 }
+

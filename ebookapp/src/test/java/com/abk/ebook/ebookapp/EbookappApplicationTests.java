@@ -1,10 +1,10 @@
-package com.example.ebook;
+package com.abk.ebook.ebookapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EbookCreationApplicationTests {
+class EbookappApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.example.ebook.service;
+package com.abk.ebook.ebookapp.service;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.ebook.dto.EbookDto;
-import com.example.ebook.exception.NotFoundException;
-import com.example.ebook.model.EbookModel;
-import com.example.ebook.repository.EbookRepository;
+import com.abk.ebook.ebookapp.dto.EbookDto;
+import com.abk.ebook.ebookapp.exception.NotFoundException;
+import com.abk.ebook.ebookapp.model.EbookModel;
+import com.abk.ebook.ebookapp.repository.EbookRepository;
+
+
 
 @Service
 public class EbookService {

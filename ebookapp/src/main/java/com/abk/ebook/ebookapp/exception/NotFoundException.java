@@ -1,4 +1,4 @@
-package com.example.ebook.exception;
+package com.abk.ebook.ebookapp.exception;
 
 public class NotFoundException extends Exception {
 
