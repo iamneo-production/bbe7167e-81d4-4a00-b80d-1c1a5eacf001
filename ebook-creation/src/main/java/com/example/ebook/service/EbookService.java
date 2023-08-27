@@ -20,24 +20,12 @@ public class EbookService {
 	@Autowired
 	private EbookRepository ebookRepo;
 
-//	 public EbookModel createEbook(EbookDto ebookDto,MultipartFile file) throws IOException {
-//		EbookModel ebook=new EbookModel();
-//		ebook.setEbookContent(file.getBytes());
-//		ebook.setTitle(ebookDto.getTitle());
-//		ebook.setCurrentVersion(ebookDto.getCurrentVersion());
-//		ebook.setUserId(ebookDto.getUserId());
-//		Timestamp timeStamp=new Timestamp(System.currentTimeMillis());
-//		ebook.setCreatedOn(timeStamp);
-//		ebook.setUpdatedOn(timeStamp);
-//		return ebookRepo.save(ebook);
-//	}
-	 
+
 	 public EbookModel getEbookById(Long bookId) throws NotFoundException {
 		 Optional<EbookModel> ebookModelOptional=ebookRepo.findById(bookId);
 		 if(ebookModelOptional.isEmpty()) {
 			 throw new NotFoundException("Book Not exist");
 		 }
-		 System.out.println(new String(ebookModelOptional.get().getEbookContent()));
 		 return ebookModelOptional.get();
 	 }
 	 
@@ -53,17 +41,14 @@ public class EbookService {
 	public EbookModel editEbook(EbookDto ebookDto) throws NotFoundException {
 		EbookModel ebook=getEbookById(ebookDto.getEbookId());
 		ebook.setCurrentVersion(ebook.getCurrentVersion());
-		//ebook.setEbookContent(ebookDto.getEbookContent().getBytes());
+	
 		ebook.setTitle(ebookDto.getTitle());
 		ebook.setUpdatedOn(new Timestamp(System.currentTimeMillis()));
 		ebook.setUserId(ebookDto.getUserId());
 		return ebookRepo.save(ebook);
 	}
 
-	public EbookModel createEbook(MultipartFile ebookContent) throws IOException {
-		System.out.println(new String(ebookContent.getBytes()));
-		return null;
-	}
+	
 
 	public EbookModel createEbook(MultipartFile ebookContent, String title, Long userId, String currentVersion) throws IOException {
 		EbookModel ebook=new EbookModel();
