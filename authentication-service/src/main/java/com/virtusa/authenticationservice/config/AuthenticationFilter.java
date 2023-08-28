@@ -16,9 +16,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.virtusa.authenticationservice.exception.NotFoundException;
 import com.virtusa.authenticationservice.model.LoginModel;
 import com.virtusa.authenticationservice.model.UserModel;
 import com.virtusa.authenticationservice.service.UserService;
