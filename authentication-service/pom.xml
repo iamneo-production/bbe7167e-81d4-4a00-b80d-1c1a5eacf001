@@ -6,7 +6,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.3</version>
-		<spring-cloud.version>2022.0.3</spring-cloud.version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.virtusa</groupId>
