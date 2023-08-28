@@ -51,10 +51,9 @@ public class EbookController {
 	@GetMapping("/{bookId}")
 	public EbookDto getEbook(@PathVariable("bookId") Long bookId) throws NotFoundException {		
 		EbookModel em= ebookService.getEbookById(bookId);
-		return new EbookDto(em.getEbookId(), new String(em.getEbookContent()),em.getTitle(), 
+		return new EbookDto(em.getEbookId(),em.getEbookContent(),em.getTitle(), 
 				                   em.getUserId(), em.getCurrentVersion(),
 				                   	em.getCreatedOn(), em.getUpdatedOn());
-		
 	}
 	
 	@GetMapping("/")
@@ -67,16 +66,16 @@ public class EbookController {
 		return ebookService.deleteBook(bookId);
 	}
 	
-	@GetMapping(value="/formatted/{ebookId}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<byte[]> generatedFormattedData(@PathVariable Long ebookId) throws NotFoundException{
-		EbookModel ebook=ebookService.getEbookById(ebookId);
-		
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        headers.setContentDispositionFormData("attachment", "document.text");
-
-        return new ResponseEntity<>(ebook.getEbookContent(), headers, org.springframework.http.HttpStatus.OK);
-
-        
-	}
+//	@GetMapping(value="/formatted/{ebookId}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+//	public ResponseEntity<byte[]> generatedFormattedData(@PathVariable Long ebookId) throws NotFoundException{
+//		EbookModel ebook=ebookService.getEbookById(ebookId);
+//		
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+//        headers.setContentDispositionFormData("attachment", "document.text");
+//
+//        return new ResponseEntity<>(ebook.getEbookContent(), headers, org.springframework.http.HttpStatus.OK);
+//
+//        
+//	}
 }

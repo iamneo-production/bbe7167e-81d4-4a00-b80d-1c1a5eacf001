@@ -1,7 +1,7 @@
 package com.virtusahackathon.ebookpreview.service;
 
-import com.virtusahackathon.ebookpreview.dto.PreviewDto;
+import com.virtusahackathon.ebookpreview.model.EbookDto;
 
 public interface IPreviewService {
-    public PreviewDto getPreview(Long eBookId);
+    public EbookDto getPreview(Long eBookId);
 }

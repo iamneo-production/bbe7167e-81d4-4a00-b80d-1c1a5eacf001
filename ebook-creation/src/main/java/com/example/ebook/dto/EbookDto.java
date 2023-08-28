@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class EbookDto {
 
 	private Long ebookId;
-	private String ebookContent;
+	private byte[] ebookContent;
 	private String title;
 	private Long userId;
 	private  String currentVersion;
@@ -18,10 +18,10 @@ public class EbookDto {
 		this.ebookId = ebookId;
 	}
 	
-	public String getEbookContent() {
+	public byte[] getEbookContent() {
 		return ebookContent;
 	}
-	public void setEbookContent(String ebookContent) {
+	public void setEbookContent(byte[] ebookContent) {
 		this.ebookContent = ebookContent;
 	}
 	public String getTitle() {
@@ -54,7 +54,7 @@ public class EbookDto {
 	public void setUpdatedOn(Timestamp updatedOn) {
 		this.updatedOn = updatedOn;
 	}
-	public EbookDto(Long ebookId, String ebookContent, String title, Long userId, String currentVersion,
+	public EbookDto(Long ebookId, byte[] ebookContent, String title, Long userId, String currentVersion,
 			Timestamp createdOn, Timestamp updatedOn) {
 		super();
 		this.ebookId = ebookId;

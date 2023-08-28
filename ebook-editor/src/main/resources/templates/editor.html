@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- Summernote CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+
+</head>
+<body>
+
+    <div id="summernote" class="editor-container" th:text="${html}"></div>
+</body>
+
+<style>
+    /* Summernote Additional CSS */
+    .note-editable {
+		line-height: 1;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px; /* Set your desired max width */
+        margin: 0 auto;
+        white-space: normal;
+    }
+    .note-editable p {
+		 margin: 5px 0; /* Adjust the margin as needed */
+    padding: 0;
+}
+    .note-editable:after {
+        content: "";
+        display: block;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .note-editor {
+        /* Your custom styles here */
+    }
+
+    /* Toolbar customization */
+    .note-toolbar {
+        /* Your custom styles here */
+    }
+
+    /* Buttons customization */
+    .note-btn {
+        /* Your custom styles here */
+    }
+
+    /* Custom editor container */
+    .editor-container {
+        margin: 20px;
+    }
+    .page-break {
+        height: calc(297mm - 40px); /* A4 height minus margin */
+        break-before: page; /* CSS page break */
+        page-break-before: always; /* Additional page break rule */
+        background-image: url('horizontal-line.png'); /* Replace with your image */
+        background-repeat: repeat-y;
+        background-size: 100% 30px; /* Adjust the line height */
+    }
+    .page-gap {
+    height: 40px; /* Adjust the gap height as needed */
+    width: 100%;
+    background-color: #f0f0f0; /* Customize the gap color */
+}
+</style> 
+<script>
+   $('#summernote').summernote({
+    height: 600,
+    callbacks: {
+        onChange: function(contents) {
+            // Detect when a new page should start (e.g., after a certain character count)
+            if (contents.length > threshold) {
+                   var gapElement = '<span class="page-gap"></span>';
+                $('#summernote').summernote('pasteHTML', gapElement);
+            }
+        }
+    }
+});     
+</script>
+</html>

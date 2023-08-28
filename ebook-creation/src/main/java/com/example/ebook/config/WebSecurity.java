@@ -33,6 +33,7 @@ public class WebSecurity {
 		http.authorizeHttpRequests()
 		    .requestMatchers(HttpMethod.POST, "/api/ebook").hasRole("AUTHOR")
 		    .requestMatchers(HttpMethod.PUT, "/api/ebook").hasAnyRole("AUTHOR","EDITOR","DESIGNER")
+		    .requestMatchers("/api/ebook/formatted/**").permitAll()
 		    //.requestMatchers("/auth/create").permitAll()
 		  //  .requestMatchers("/login").permitAll()
 		    .anyRequest().authenticated()
